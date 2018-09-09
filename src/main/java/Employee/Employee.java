@@ -1,8 +1,10 @@
 package Employee;
 
 import EmployeeCard.EmployeeCard;
+import Payment.IPayClassification;
 
 import java.math.BigDecimal;
+import java.util.LinkedList;
 
 public class Employee {
     private Name name;
@@ -10,8 +12,9 @@ public class Employee {
     private EmployeeId id;
     private WorkType type;
     private BigDecimal reward;
-    private EmployeeCard employeeCard;
+    private LinkedList<EmployeeCard> employeeCard;
     private Dues dues;
+    private IPayClassification payClassification;
 
     public Employee setName(Name name) {
         this.name = name;
@@ -43,8 +46,8 @@ public class Employee {
         return this;
     }
 
-    public Employee setEmployeeCard(EmployeeCard employeeCard) {
-        this.employeeCard = employeeCard;
+    public Employee setEmployeeCard(LinkedList<EmployeeCard> employeeCard) {
+        this.employeeCard = new LinkedList<EmployeeCard>(employeeCard);
 
         return this;
     }
@@ -53,5 +56,25 @@ public class Employee {
         this.dues = dues;
 
         return this;
+    }
+
+    public Employee setPayClassification(IPayClassification payClassification) {
+        this.payClassification = payClassification;
+
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name=" + name +
+                ", surname=" + surname +
+                ", id=" + id +
+                ", type=" + type +
+                ", reward=" + reward +
+                ", employeeCard=" + employeeCard +
+                ", dues=" + dues +
+                ", payClassification=" + payClassification +
+                '}';
     }
 }

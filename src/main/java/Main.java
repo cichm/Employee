@@ -1,10 +1,13 @@
 import Employee.Employee;
 import Employee.WorkType;
 import EmployeeCard.EmployeeCard;
+import Payment.CommissionedClassification;
+import Payment.SalesReceipt;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.LinkedList;
 
 import static Employee.Dues.dues;
 import static Employee.Name.name;
@@ -16,12 +19,19 @@ import static EmployeeCard.EndDate.endDate;
 
 public class Main {
     public static void main(String[] args) {
-        EmployeeCard employeeCard = new EmployeeCard(startDate(new Date()), endDate(new Date()));
+        LocalDateTime startDate = LocalDateTime.of(2018, 9, 8, 8, 30);
+        LocalDateTime endDate = LocalDateTime.of(2018, 9, 8, 16, 30);
+        EmployeeCard employeeCard = new EmployeeCard(startDate(startDate), endDate(endDate));
+
+        LinkedList<EmployeeCard> employeeCardCollection = new LinkedList<EmployeeCard>();
+        employeeCardCollection.add(employeeCard);
 
         ArrayList<Employee> employees = new ArrayList<Employee>();
+
+        SalesReceipt salesReceipt = new SalesReceipt(LocalDateTime.of(2018, 9, 8, 8, 30), 5);
         employees.add(new Employee().setName(name("Jarosław")).setSurname(surname("Michalewski")).setId(employeeId(04440))
-                .setWorkType(WorkType.standard).setReward(new BigDecimal(5000)).setEmployeeCard(employeeCard)
-                .setDues(dues(60)));
+                .setWorkType(WorkType.standard).setReward(new BigDecimal(5000)).setEmployeeCard(employeeCardCollection)
+                .setDues(dues(60)).setPayClassification(new CommissionedClassification(5000, 1, salesReceipt)));
 
         System.out.print(employees.get(0).toString());
     }

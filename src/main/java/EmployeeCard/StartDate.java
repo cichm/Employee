@@ -1,20 +1,20 @@
 package EmployeeCard;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class StartDate {
-    private final Date startDate;
+    private final LocalDateTime startDate;
 
     public StartDate() {
-        this.startDate = new Date();
+        this.startDate = LocalDateTime.now();
     }
 
-    private StartDate(Date startDate) {
+    private StartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public static StartDate startDate(Date startDate) {
-        if (startDate.after(new Date())) {
+    public static StartDate startDate(LocalDateTime startDate) {
+        if (startDate.isAfter(LocalDateTime.now())) {
             new IllegalArgumentException("Podana data rozpoczecia jest błędna.");
         }
         return new StartDate(startDate);

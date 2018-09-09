@@ -1,20 +1,20 @@
 package EmployeeCard;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class EndDate {
-    private final Date endDate;
+    private final LocalDateTime endDate;
 
     private EndDate() {
-        this.endDate = new Date();
+        this.endDate = LocalDateTime.now();
     }
 
-    private EndDate(Date endDate) {
+    private EndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
-    public static EndDate endDate(Date endDate) {
-        if (endDate.after(new Date())) {
+    public static EndDate endDate(LocalDateTime endDate) {
+        if (endDate.isAfter(LocalDateTime.now())) {
             throw new IllegalArgumentException("Podana data zakonczenia jest bledna.");
         }
 
