@@ -19,4 +19,8 @@ public class StartDate {
         }
         return new StartDate(startDate);
     }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
 }

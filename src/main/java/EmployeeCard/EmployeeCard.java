@@ -8,4 +8,12 @@ public class EmployeeCard {
         this.startData = startData;
         this.endData = endData;
     }
+
+    public StartDate getStartData() {
+        return startData;
+    }
+
+    public EndDate getEndData() {
+        return endData;
+    }
 }

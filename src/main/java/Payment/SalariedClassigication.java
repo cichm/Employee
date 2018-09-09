@@ -1,6 +1,7 @@
 package Payment;
 
 public class SalariedClassigication implements IPayClassification {
+
     private float monthlyPay;
 
     public SalariedClassigication(float monthlyPay) {

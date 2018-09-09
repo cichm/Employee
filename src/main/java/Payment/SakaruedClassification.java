@@ -1,6 +1,7 @@
 package Payment;
 
 public class SakaruedClassification implements IPayClassification {
+
     private float monthlyPay;
 
     public SakaruedClassification(float monthlyPay) {

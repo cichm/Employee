@@ -3,6 +3,7 @@ package Payment;
 import java.time.LocalDateTime;
 
 public class TimedCard {
+
     private LocalDateTime localDateTime;
     private int hours;
 
