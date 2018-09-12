@@ -29,10 +29,11 @@ public class Main {
         ArrayList<Employee> employees = new ArrayList<Employee>();
 
         SalesReceipt salesReceipt = new SalesReceipt(LocalDateTime.of(2018, 9, 8, 8, 30), 5);
-        employees.add(new Employee().setName(name("Jarosław")).setSurname(surname("Michalewski")).setId(employeeId(04440))
-                .setWorkType(WorkType.standard).setReward(new BigDecimal(5000)).setEmployeeCard(employeeCardCollection)
-                .setDues(dues(60)).setPayClassification(new CommissionedClassification(5000, 1, salesReceipt)));
+        employees.add(new Employee.Builder(name("Jarosław"), surname("Michalewski"), employeeId(04440), employeeCardCollection).build());
+        employees.add(new Employee.Builder(name("Jarosław"), surname("Michalewski"), employeeId(04440), employeeCardCollection).
+                dues(dues(60)).workType(WorkType.standard).reward(new BigDecimal(5000)).
+                payClassification(new CommissionedClassification(5000, 1, salesReceipt)).build());
 
-        System.out.print(employees.get(0).toString());
+        System.out.print(employees.get(1).toString());
     }
 }
