@@ -3,7 +3,7 @@ import EmployeeCard.StartDate
 
 import java.time.LocalDateTime;
 
-class EmployeeCard extends Specification {
+class EmployeeCardTest extends Specification {
     def "should be done if start date will be is not equal to or greater than the present date"() {
         given: "Initialize StartDate object and put LocalDateTime"
         def date = LocalDateTime.of(2018, 9, 8, 8, 30)
